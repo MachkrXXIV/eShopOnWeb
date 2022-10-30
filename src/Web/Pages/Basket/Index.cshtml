@@ -33,6 +33,7 @@
                                 <img class="esh-basket-image" src="@item.PictureUrl" />
                             </section>
                             <section class="esh-basket-item esh-basket-item--middle col-xs-3">@item.ProductName</section>
+                            <section class="esh-basket-item esh-basket-item--middle col-xs-3">@item.Subtitle</section>
                             <section class="esh-basket-item esh-basket-item--middle col-xs-2">$ @item.UnitPrice.ToString("N2")</section>
                             <section class="esh-basket-item esh-basket-item--middle col-xs-2">
                                 <input type="hidden" name="@("Items[" + i + "].Id")" value="@item.Id" />
@@ -66,6 +67,8 @@
                         <a asp-page="/Index" class="btn esh-basket-checkout text-white">[ Continue Shopping ]</a>
                     </section>
                     <section class="esh-basket-item col-xs-push-7 col-xs-4">
+
+                        <button class="btn" name="removeButton" value="" type="submit" asp-page-handler="Remove" >[ Remove All ] </button>
 
                         <button class="btn esh-basket-checkout" name="updatebutton" value="" type="submit"
                                 asp-page-handler="Update">

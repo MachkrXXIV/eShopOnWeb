@@ -7,6 +7,7 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities;
 public class CatalogItem : BaseEntity, IAggregateRoot
 {
     public string Name { get; private set; }
+    public string Subtitle { get; private set; }
     public string Description { get; private set; }
     public decimal Price { get; private set; }
     public string PictureUri { get; private set; }
@@ -20,7 +21,8 @@ public class CatalogItem : BaseEntity, IAggregateRoot
         string description,
         string name,
         decimal price,
-        string pictureUri)
+        string pictureUri,
+        string subtitle = "Item Subtitle")
     {
         CatalogTypeId = catalogTypeId;
         CatalogBrandId = catalogBrandId;
