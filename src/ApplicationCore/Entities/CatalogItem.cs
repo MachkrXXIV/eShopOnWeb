@@ -28,6 +28,7 @@ public class CatalogItem : BaseEntity, IAggregateRoot
         CatalogBrandId = catalogBrandId;
         Description = description;
         Name = name;
+        Subtitle = subtitle;
         Price = price;
         PictureUri = pictureUri;
     }
@@ -35,10 +36,12 @@ public class CatalogItem : BaseEntity, IAggregateRoot
     public void UpdateDetails(CatalogItemDetails details)
     {
         Guard.Against.NullOrEmpty(details.Name, nameof(details.Name));
+        Guard.Against.NullOrEmpty(details.Subtitle, nameof(details.Subtitle));
         Guard.Against.NullOrEmpty(details.Description, nameof(details.Description));
         Guard.Against.NegativeOrZero(details.Price, nameof(details.Price));
 
         Name = details.Name;
+        Subtitle = details.Subtitle;
         Description = details.Description;
         Price = details.Price;
     }
@@ -68,12 +71,14 @@ public class CatalogItem : BaseEntity, IAggregateRoot
     public readonly record struct CatalogItemDetails
     {
         public string? Name { get; }
+        public string? Subtitle { get; }
         public string? Description { get; }
         public decimal Price { get; }
 
-        public CatalogItemDetails(string? name, string? description, decimal price)
+        public CatalogItemDetails(string? name, string? subtitle, string? description, decimal price)
         {
             Name = name;
+            Subtitle = subtitle;
             Description = description;
             Price = price;
         }

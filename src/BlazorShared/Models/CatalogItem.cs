@@ -19,6 +19,8 @@ public class CatalogItem
     [Required(ErrorMessage = "The Name field is required")]
     public string Name { get; set; }
 
+    public string Subtitle { get; set; }
+
     [Required(ErrorMessage = "The Description field is required")]
     public string Description { get; set; }
 
